@@ -1857,14 +1857,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
-    console.log(window.location.hostname);
-    Echo.join("chat").here(function (users) {
-      console.log(users);
-    }).joining(function (user) {
-      console.log(user.name + ' se ha unido.');
-    }).leaving(function (user) {
-      console.log(user.name + ' ha abandonado.');
-    });
+    console.log(window.location.hostname); //
+
+    Echo.join("chat") //
+    .here(function (users) {
+      //
+      console.log(users); //
+    }) //
+    .joining(function (user) {
+      //
+      console.log(user.name + ' se ha unido.'); //
+    }) //
+    .leaving(function (user) {
+      //
+      console.log(user.name + ' ha abandonado.'); //
+    }); //
   }
 });
 
@@ -59282,16 +59289,24 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  * allows your team to easily build robust real-time web applications.
  */
 
+ //
 
-window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
+window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js"); //
+
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
+  //
   broadcaster: 'pusher',
+  //
   key: 'myAppKey',
+  //
   wsHost: window.location.hostname,
+  //
   // wsHost: process.env.APP_URL,
   wsPort: 6001,
-  disableStats: true
-});
+  //
+  disableStats: true //
+
+}); //
 
 /***/ }),
 

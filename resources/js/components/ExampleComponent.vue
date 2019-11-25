@@ -18,17 +18,17 @@
     export default {
         mounted() {
             console.log('Component mounted.')
-            console.log(window.location.hostname)
-            Echo.join(`chat`)
-            .here((users) => {
-                console.log(users);
-            })
-            .joining((user) => {
-                console.log(user.name+' se ha unido.');
-            })
-            .leaving((user) => {
-                console.log(user.name+' ha abandonado.');
-            });
+            console.log(window.location.hostname)//
+            Echo.join(`chat`)//
+            .here((users) => {//
+                console.log(users);//
+            })//
+            .joining((user) => {//
+                console.log(user.name+' se ha unido.');//
+            })//
+            .leaving((user) => {//
+                console.log(user.name+' ha abandonado.');//
+            });//
         }
     }
 </script>
