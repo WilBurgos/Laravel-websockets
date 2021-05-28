@@ -35,7 +35,7 @@ window.Pusher = require('pusher-js');//
 
 window.Echo = new Echo({//
     broadcaster: 'pusher',//
-    key: 'myAppKey',//
+    key: 'bb8ede7d732f9aba152a',//
     wsHost: window.location.hostname,//
     // wsHost: process.env.APP_URL,
     wsPort: 6001,//

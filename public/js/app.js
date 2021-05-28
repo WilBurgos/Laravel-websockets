@@ -1854,24 +1854,49 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      messages: []
+    };
+  },
   mounted: function mounted() {
-    console.log('Component mounted.');
-    console.log(window.location.hostname); //
-
-    Echo.join("chat") //
-    .here(function (users) {
-      //
-      console.log(users); //
-    }) //
-    .joining(function (user) {
-      //
-      console.log(user.name + ' se ha unido.'); //
-    }) //
-    .leaving(function (user) {
-      //
-      console.log(user.name + ' ha abandonado.'); //
-    }); //
+    // console.log('Component mounted.')
+    // console.log(window.location.hostname)//
+    // Echo.join(`chat`)//
+    // .here((users) => {//
+    //     console.log(users);//
+    // })//
+    // .joining((user) => {//
+    //     console.log(user.name+' se ha unido.');//
+    // })//
+    // .leaving((user) => {//
+    //     console.log(user.name+' ha abandonado.');//
+    // });//
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+    var pusher = new Pusher('bb8ede7d732f9aba152a', {
+      cluster: 'us2'
+    });
+    var channel = pusher.subscribe('my-channel');
+    var olv = this.messages;
+    channel.bind('my-event', function (data) {
+      console.log(data);
+      olv.push(JSON.stringify(data));
+    }); // Vue application
+    // const app = new Vue({
+    // el: '#app',
+    // data: {
+    //     messages: [],
+    // },
+    // });
   }
 });
 
@@ -47045,32 +47070,40 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
-            ]),
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-8" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _vm._v("Example Component")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _vm._v(
+              "\n                    I'm an example component.\n                    "
+            ),
+            _c("br"),
             _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              )
-            ])
+            _c(
+              "ul",
+              _vm._l(_vm.messages, function(message) {
+                return _c("li", [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(message) +
+                      "\n                    "
+                  )
+                ])
+              }),
+              0
+            )
           ])
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -59297,7 +59330,7 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   //
   broadcaster: 'pusher',
   //
-  key: 'myAppKey',
+  key: 'bb8ede7d732f9aba152a',
   //
   wsHost: window.location.hostname,
   //
@@ -59397,8 +59430,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\Notificaciones\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laragon\www\Notificaciones\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laragon\www\Laravel-websockets\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\Laravel-websockets\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
